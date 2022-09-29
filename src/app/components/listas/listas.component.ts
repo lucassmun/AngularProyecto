@@ -7,6 +7,7 @@ import { Persona } from 'src/app/models/persona';
   styleUrls: ['./listas.component.css']
 })
 export class ListasComponent implements OnInit {
+      variableNota: number = 4;
 
   listaNombres: Array<Persona> = [
     {nombre: 'Diego', edad: 20, nota: 8},
