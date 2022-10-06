@@ -1,0 +1,45 @@
+
+
+<div class="formulario_container">
+
+    <h4>Recibí información de nuestros cursos</h4>
+
+    <form [formGroup]="formularioUsuario" (ngSubmit)="agregarUsuario()">
+        
+        <div class="row mb-4">
+          <div class="col">
+            <div class="form-outline">
+              <input type="text" id="form3Example1" class="form-control" formControlName="nombre" />
+              <label class="form-label" for="">Nombre</label>
+              <p *ngIf="formularioUsuario.get('nombre')?.touched && formularioUsuario.get('nombre')?.errors?.['required']" class="alert alert-danger">El campo nombre no puede estar vacío.</p>
+            </div>
+          </div>
+        </div>
+      
+        <!-- correo -->
+        <div class="form-outline mb-4">
+          <input type="email" id="form3Example3" class="form-control" formControlName="correo" />
+          <label class="form-label" for="">Email</label>
+          <p *ngIf="formularioUsuario.get('correo')?.touched && formularioUsuario.get('correo')?.errors?.['pattern']" class="alert alert-danger">El formato del correo no es correcto</p>
+        </div>
+      
+        <!-- celular -->
+        <div class="form-outline mb-4">
+            <input type="text" id="form3Example4" class="form-control" formControlName="celular"/>
+            <label class="form-label" for="">Celular</label>
+            <p *ngIf="formularioUsuario.get('celular')?.touched && formularioUsuario.get('celular')?.errors?.['pattern']" class="alert alert-danger">Solo se admiten números</p>
+          </div>
+      
+        <!-- Recibir info -->
+        <div class="form-check d-flex justify-content-center mb-4">
+          <input class="form-check-input me-2" type="checkbox" value="" id="form2Example33" formControlName="acepto" checked />
+          <label class="form-check-label" for="">
+            Acepto recibir novedades en mi correo electrónico.
+          </label>
+        </div>
+      
+        <!-- OK -->
+        <button type="submit" class="btn btn-primary btn-block mb-4">Recibir información</button>
+      
+      </form>
+</div>
