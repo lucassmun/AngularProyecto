@@ -20,6 +20,7 @@
         <div class="form-outline mb-4">
           <input type="email" id="form3Example3" class="form-control" formControlName="correo" />
           <label class="form-label" for="">Email</label>
+          <p *ngIf="formularioUsuario.get('correo')?.touched && formularioUsuario.get('correo')?.errors?.['required']" class="alert alert-danger">El campo correo es requerido</p>
           <p *ngIf="formularioUsuario.get('correo')?.touched && formularioUsuario.get('correo')?.errors?.['pattern']" class="alert alert-danger">El formato del correo no es correcto</p>
         </div>
       
@@ -27,7 +28,7 @@
         <div class="form-outline mb-4">
             <input type="text" id="form3Example4" class="form-control" formControlName="celular"/>
             <label class="form-label" for="">Celular</label>
-            <p *ngIf="formularioUsuario.get('celular')?.touched && formularioUsuario.get('celular')?.errors?.['pattern']" class="alert alert-danger">Solo se admiten números</p>
+            <p *ngIf="formularioUsuario.get('celular')?.touched && formularioUsuario.get('celular')?.errors?.['minlength']" class="alert alert-danger">El número debe tener al menos 10 digitos</p>
           </div>
       
         <!-- Recibir info -->
@@ -39,7 +40,7 @@
         </div>
       
         <!-- OK -->
-        <button type="submit" class="btn btn-primary btn-block mb-4">Recibir información</button>
+        <button type="submit"  [disabled]="formularioUsuario.invalid" class="btn btn-primary btn-block mb-4 ">Recibir información</button>
       
       </form>
 </div>

@@ -16,8 +16,8 @@ export class FormularioComponent implements OnInit {
   ) {
     this.formularioUsuario = fb.group({
       nombre: new FormControl('', [Validators.required]),
-      correo: new FormControl('', [Validators.pattern('^[a-z]+@[a-z]+\\.[a-z]{2,3}$')]),
-      celular: new FormControl('', [Validators.required, Validators.pattern(/^[1-9]\d{6,10}$/)]),
+      correo: new FormControl('', [Validators.required, Validators.pattern('^[a-z]+@[a-z]+\\.[a-z]{2,3}$')]),
+      celular: new FormControl(Number, [Validators.required, Validators.minLength(10)]),
       acepto: new FormControl(false, []),
     });
   }
@@ -26,10 +26,6 @@ export class FormularioComponent implements OnInit {
   }
 
   agregarUsuario(){
-  
-    /* this.formularioUsuario.addControl('control1', new FormControl('', [])); */
-
-    /* console.log(this.formularioUsuario); */ 
     console.log(this.formularioUsuario);
   }
 
