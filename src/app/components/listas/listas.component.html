@@ -1,41 +1,45 @@
-<h1>Lista de alumnos</h1>
 
-<ol>
-    <li *ngFor = "let nombre of listaNombres">
-        <h4>Nombre: {{nombre.nombre }} - Edad: {{nombre.edad}}</h4> 
-        
-    </li>
-</ol>
+<div class="listas_container">
 
+    <h1>Lista de alumnos</h1>
 
-<h1>Notas</h1>
-
-<ul>
-    <li>
-        <div *ngFor ="let persona of listaNombres">
-            <td [ngClass]="{'aprobados':persona.nota>=4,'desaprobados':persona.nota<4}">{{persona.nombre}}: {{persona.nota}}</td>
-        </div>
-           
-    </li>
-</ul>
-
-<h3 [ngClass]="'aprobados'">Los siguientes alumnos aprobaron y promocionaron la materia:</h3>
-
-<ul>
-    <li>
-        <div *ngFor ="let persona of listaNombres">
-            <div *ngIf="persona.nota >= 4"> {{persona.nombre}}</div>
-        </div>
-           
-    </li>
-</ul>
-
-<h3 [ngClass]="'desaprobados'">Los alumnos que deberan rendir el final son:</h3>
-
-<ul>
-    <li>
-        <div *ngFor ="let persona of listaNombres">
-            <div *ngIf="persona.nota < 4"> {{persona.nombre}}</div>
-        </div> 
-    </li>
-</ul>
+    <ol>
+        <li *ngFor = "let nombre of listaNombres">
+            <h4>Nombre: {{nombre.nombre }} - Edad: {{nombre.edad}}</h4> 
+        </li>
+    </ol>
+    
+    
+    <h1>Notas</h1>
+    
+    <ul>
+        <li>
+            <div *ngFor ="let persona of listaNombres">
+                <td [ngClass]="{'aprobados':persona.nota>=4,'desaprobados':persona.nota<4}">{{persona.nombre}}: {{persona.nota}}</td>
+            </div>
+               
+        </li>
+    </ul>
+    
+    <h3 [ngClass]="'aprobados'">Los siguientes alumnos aprobaron y promocionaron la materia:</h3>
+    
+    <ul>
+        <li>
+            <div *ngFor ="let persona of listaNombres">
+                <div *ngIf="persona.nota >= 4"> {{persona.nombre}}</div>
+            </div>
+               
+        </li>
+    </ul>
+    
+    <h3 [ngClass]="'desaprobados'">Los alumnos que deberan rendir el final son:</h3>
+    
+    <ul>
+        <li>
+            <div *ngFor ="let persona of listaNombres">
+                <div *ngIf="persona.nota < 4"> {{persona.nombre}}</div>
+            </div> 
+        </li>
+    </ul>
+    
+</div>

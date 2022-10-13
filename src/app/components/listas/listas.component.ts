@@ -10,11 +10,11 @@ export class ListasComponent implements OnInit {
       variableNota: number = 4;
 
   listaNombres: Array<Persona> = [
-    {nombre: 'Diego', edad: 20, nota: 8},
-    {nombre: 'Gregorio', edad: 26, nota: 4},
-    {nombre: 'Luciano', edad: 21, nota: 2},
-    {nombre: 'Pamela', edad: 33, nota: 10},
-    {nombre: 'Eugenia', edad: 18, nota:3},
+    {nombre: 'Diego', apellido: 'Ramonda', edad: 20, nota: 8},
+    {nombre: 'Gregorio', apellido: 'Rosales', edad: 26, nota: 4},
+    {nombre: 'Luciano',  apellido: 'Mendoza', edad: 21, nota: 2},
+    {nombre: 'Pamela',  apellido: 'Peña', edad: 33, nota: 10},
+    {nombre: 'Eugenia', apellido: 'Lucero',  edad: 18, nota:3},
 
   ];
 

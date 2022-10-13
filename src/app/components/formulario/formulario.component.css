@@ -2,8 +2,7 @@
     width: 60%;
     margin-left: 20%;
     margin-top: 40px;
-}
-
-.error{
-    color: red;
+    background-color: #50f27b;
+    padding: 20px;
+    border-radius: 10px;
 }

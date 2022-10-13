@@ -2,6 +2,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
+
 @Component({
   selector: 'app-formulario',
   templateUrl: './formulario.component.html',
@@ -27,6 +28,7 @@ export class FormularioComponent implements OnInit {
 
   agregarUsuario(){
     console.log(this.formularioUsuario);
+    this.formularioUsuario.reset();
   }
 
 }
