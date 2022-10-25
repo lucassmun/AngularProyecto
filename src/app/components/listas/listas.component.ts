@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { filter, from, map, of } from 'rxjs';
 import { Curso } from 'src/app/models/curso';
 import { Persona } from 'src/app/models/persona';
 import { CursoService } from 'src/app/services/curso.service';
@@ -21,6 +22,15 @@ export class ListasComponent implements OnInit {
   ];
   
   cursos!: Curso[];
+
+
+  cursos$ = this.cursoService.obtenerCursosObservable();
+  
+  cursosPromise = this.cursoService.obtenerCursosPromise();
+  cursosSubject: any;
+
+  
+
 
   constructor(
     private cursoService: CursoService
@@ -47,7 +57,28 @@ export class ListasComponent implements OnInit {
   }
 
 
+  
+
+
   ngOnInit(): void {
+    from(this.cursos).pipe(
+        filter((curso: Curso) => curso.nombre === 'Photoshop')
+       )
   }
 
+  agregarCurso(){
+    let curso: Curso = {
+      nombre: 'Fundamentos del diseño',
+      comision: '220033',
+      profesor: 'Valerio Massa',
+      fechaInicio: new Date(),
+      fechaFin: new Date(),
+      inscripcionAbierta: true,
+      imagen: 'https://i.blogs.es/5d0d96/photoshop/450_1000.webp'
+    }
+  this.cursoService.agregarCurso(curso);
 }
+  }
+
+
+

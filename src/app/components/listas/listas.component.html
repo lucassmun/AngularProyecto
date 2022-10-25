@@ -1,6 +1,11 @@
 <div class="listas_container">
 
-   <!--  <pre>Cursos: {{ cursos │ json }}</pre> -->
+    <button (click)="agregarCurso()">Agregar Curso</button>
+    
+     <pre>Cursos: {{ cursos$ | async | json }}</pre> 
+   
+  <!--   <pre>Cursos: {{ cursosPromise | async | json }}</pre> -->
+
 
     <h1>Lista de alumnos</h1>
 
