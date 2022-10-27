@@ -1,6 +1,12 @@
-
-<div class="cursos_container">
+<router-outlet></router-outlet>
+<div class="cursos_cabecera">
     <h1 class="cursos_titulos">Lista de cursos</h1>
+    <div class="cursos_botones">
+        <button type="button" class="btn btn-success btn-sm" routerLink="cursos-agregar">Agregar un curso</button>
+        <button type="button" class="btn btn-success btn-sm" routerLink="cursos-editar">Editar un curso</button>
+    </div>
+</div>
+<div class="cursos_container">
 <div class="row">
     <div *ngFor="let curso of cursos" class="col-md-3">
         <mat-card>

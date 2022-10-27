@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { filter, from, map, of } from 'rxjs';
 import { Curso } from 'src/app/models/curso';
 import { Persona } from 'src/app/models/persona';
-import { CursoService } from 'src/app/services/curso.service';
+import { CursoService } from 'src/app/cursos/services/curso.service';
 
 @Component({
   selector: 'app-listas',
@@ -55,9 +55,6 @@ export class ListasComponent implements OnInit {
     })
     console.log('Paso 3')
   }
-
-
-  
 
 
   ngOnInit(): void {
