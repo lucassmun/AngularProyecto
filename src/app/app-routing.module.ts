@@ -9,8 +9,10 @@ const routes: Routes = [
   {path: 'inicio', component: InicioComponent},
   {path: 'alumnos', component: ListasComponent},
   {path: '', redirectTo: 'inicio', pathMatch: 'full'},
-  {path: '**', component: PaginaNoEncontradaComponent}
+  { path: '**', component: PaginaNoEncontradaComponent }
+
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
