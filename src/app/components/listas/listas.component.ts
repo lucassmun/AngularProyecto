@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { filter, from, map, of } from 'rxjs';
-import { Curso } from 'src/app/models/curso';
+import { Curso } from 'src/app/cursos/models/curso';
 import { Persona } from 'src/app/models/persona';
 import { CursoService } from 'src/app/cursos/services/curso.service';
 
@@ -9,7 +9,7 @@ import { CursoService } from 'src/app/cursos/services/curso.service';
   templateUrl: './listas.component.html',
   styleUrls: ['./listas.component.css']
 })
-export class ListasComponent implements OnInit {
+export class ListasComponent{
       variableNota: number = 4;
       
   listaNombres: Array<Persona> = [
@@ -21,61 +21,4 @@ export class ListasComponent implements OnInit {
 
   ];
   
-  cursos!: Curso[];
-
-
-  cursos$ = this.cursoService.obtenerCursosObservable();
-  
-  cursosPromise = this.cursoService.obtenerCursosPromise();
-  cursosSubject: any;
-
-  
-
-
-  constructor(
-    private cursoService: CursoService
-  ){
-    console.log('Paso 1');
-    cursoService.obtenerCursosPromise().then((valor: Curso[]) =>{
-      this.cursos = valor;
-      console.log(valor);
-    }).catch((error: any) =>{
-      console.log(error);
-    });
-    
-    cursoService.obtenerCursosObservable().subscribe({
-      next: (cursos: Curso[])  => {
-        this.cursos = cursos;
-        console.log(cursos);
-      },
-      error: (error) =>{
-        console.error(error);
-      }
-      
-    })
-    console.log('Paso 3')
-  }
-
-
-  ngOnInit(): void {
-    from(this.cursos).pipe(
-        filter((curso: Curso) => curso.nombre === 'Photoshop')
-       )
-  }
-
-  agregarCurso(){
-    let curso: Curso = {
-      nombre: 'Fundamentos del diseño',
-      comision: '220033',
-      profesor: 'Valerio Massa',
-      fechaInicio: new Date(),
-      fechaFin: new Date(),
-      inscripcionAbierta: true,
-      imagen: 'https://i.blogs.es/5d0d96/photoshop/450_1000.webp'
-    }
-  this.cursoService.agregarCurso(curso);
 }
-  }
-
-
-

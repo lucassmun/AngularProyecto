@@ -1,26 +1,2 @@
 
 
-.cursos_container{
-    width: 90%;
-    margin-left: 5%;
-    background-color:#6bec8e;
-    padding: 10px;
-    border-radius: 5px;
-    margin-bottom: 50px;
-}
-
-.cursos_cabecera{
-    width: 90%;
-    margin-left: 5%;
-    display: flex;
-    justify-content: space-between;
-
-}
-
-.cursos_botones button{
-    margin-right: 5px;
-}
-
-.mat-card{
-    margin-bottom: 10px;
-}

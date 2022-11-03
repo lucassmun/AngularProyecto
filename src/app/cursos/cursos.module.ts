@@ -10,6 +10,8 @@ import { MaterialModule } from '../material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BooleanATextoPipe } from '../pipes/boolean-a-texto.pipe';
 import { BooleanoEstiloDirective } from '../directives/booleano-estilo.directive';
+import { ListasComponent } from '../components/listas/listas.component';
+import { ListaCursosComponent } from './components/lista-cursos/lista-cursos.component';
 
 
 @NgModule({
@@ -19,7 +21,8 @@ import { BooleanoEstiloDirective } from '../directives/booleano-estilo.directive
     CursosVistaComponent,
     CursosCardsComponent,
     BooleanATextoPipe,
-    BooleanoEstiloDirective
+    BooleanoEstiloDirective,
+    ListaCursosComponent
   ],
   imports: [
     CommonModule,

@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, of, Subject } from 'rxjs';
-import { Curso } from '../../models/curso';
+import { BehaviorSubject, filter, map, Observable, Subject } from 'rxjs';
+import { Curso } from '../models/curso';
 
 @Injectable()
 export class CursoService {
-private cursos: Curso[] = [{
+  private cursos: Curso[] = [{
+  id: 1,
   nombre: 'Photoshop',
   comision: '33245',
   profesor: 'Julian Castro',
@@ -14,7 +15,7 @@ private cursos: Curso[] = [{
   imagen: 'https://i.blogs.es/5d0d96/photoshop/450_1000.webp',
   },
   {
-    
+    id: 2,
     nombre: 'Illustrator',
     comision: '02013',
     profesor: 'Emiliano Mora',
@@ -24,69 +25,50 @@ private cursos: Curso[] = [{
     imagen: 'https://i.blogs.es/5d0d96/photoshop/450_1000.webp',
   },
   {
-    
-    nombre: 'Photoshop',
+      id: 3,
+      nombre: 'Photoshop',
       comision: '34555',
       profesor: 'Sofia Moreno',
       fechaInicio: new Date(2022,3,20),
       fechaFin: new Date(2022,6,20),
       inscripcionAbierta: false,
       imagen: 'https://i.blogs.es/5d0d96/photoshop/450_1000.webp',
-  }
-];
-
-cursosObservable: Observable<Curso[]>;
-cursosSubject: BehaviorSubject<Curso[]>;
-
-
-
-  constructor() { 
-    this.cursosSubject = new BehaviorSubject<Curso[]>(this.cursos);
-
-    this.cursosObservable =new Observable<Curso[]>((suscriptor) => {
-      suscriptor.next(this.cursos);
-
-      setTimeout(() => {
-        this.cursos.push({
-          nombre: 'After Effect',
-          comision: '220033',
-          profesor: 'Valerio Massa',
-          fechaInicio: new Date(),
-          fechaFin: new Date(),
-          inscripcionAbierta: true,
-          imagen: 'https://i.blogs.es/5d0d96/photoshop/450_1000.webp'
-        });
-        suscriptor.next(this.cursos);
-      },2000)
-
-    })
-
-    
-  }
-
-
-  obtenerCursosPromise(): Promise<Curso[] | any>{
-    return new Promise((resolve, reject) => {
-      if(this.cursos.length > 0){
-        resolve(this.cursos);
-      }else{
-        reject({
-          codigo: 0,
-          mensaje: 'No hay cursos disponibles'
-        })
-      }
-    });
-  }
-
-  obtenerCursosObservable(){
-    /* return this.cursosObservable; */
-    /* this.cursosSubject.next(this.cursos); */
-    return this.cursosSubject.asObservable();
-  }
-
-agregarCurso(curso : Curso){
-  this.cursos.push(curso);
-  this.cursosSubject.next(this.cursos);
+  },
+  {
+    id: 4,
+    nombre: 'Photoshop',
+    comision: '34555',
+    profesor: 'Sofia Moreno',
+    fechaInicio: new Date(2022,3,20),
+    fechaFin: new Date(2022,6,20),
+    inscripcionAbierta: false,
+    imagen: 'https://i.blogs.es/5d0d96/photoshop/450_1000.webp',
 }
+];
+  private cursosSubect: BehaviorSubject<Curso[]>;
 
+  constructor() {
+    this.cursosSubect = new BehaviorSubject<Curso[]>(this.cursos);
+  }
+
+  obtenerCursos(): Observable<Curso[]>{
+    return this.cursosSubect.asObservable();
+  }
+
+  obtenerCurso(id: number): Observable<Curso>{
+    return this.obtenerCursos().pipe(
+      map((cursos: Curso[]) => cursos.filter((curso: Curso) => curso.id === id)[0])
+    )
+  }
+
+  agregarCurso(curso: Curso){
+    this.cursos.push(curso);
+    this.cursosSubect.next(this.cursos);
+  }
+
+  editarCurso(curso: Curso){
+  }
+
+  eliminarCurso(id: number){
+  }
 }

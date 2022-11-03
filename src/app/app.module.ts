@@ -20,12 +20,12 @@ import { HeaderComponent } from './components/header/header.component';
 @NgModule({
   declarations: [
     AppComponent,
-    ListasComponent,
     FormularioComponent,
     HeaderComponent,
     NombreApellidoPipe,
     TituloCabeceraDirective,
     InicioComponent,
+    ListasComponent,
     PaginaNoEncontradaComponent,
   
   ],

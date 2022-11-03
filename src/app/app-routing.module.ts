@@ -6,9 +6,9 @@ import { PaginaNoEncontradaComponent } from './components/pagina-no-encontrada/p
 
 
 const routes: Routes = [
+  {path: '', redirectTo: 'inicio', pathMatch: 'full'},
   {path: 'inicio', component: InicioComponent},
   {path: 'alumnos', component: ListasComponent},
-  {path: '', redirectTo: 'inicio', pathMatch: 'full'},
   { path: '**', component: PaginaNoEncontradaComponent }
 
 ];

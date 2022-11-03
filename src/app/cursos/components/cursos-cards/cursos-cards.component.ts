@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Curso } from 'src/app/models/curso';
+import { Curso } from 'src/app/cursos/models/curso';
 
 @Component({
   selector: 'app-cursos-cards',
@@ -9,6 +9,7 @@ import { Curso } from 'src/app/models/curso';
 export class CursosCardsComponent implements OnInit {
   cursos: Curso[] = [
     {
+      id:4,
       nombre: 'Photoshop',
       comision: '33245',
       profesor: 'Julian Castro',
@@ -19,6 +20,7 @@ export class CursosCardsComponent implements OnInit {
     },
 
     {
+      id: 5,
       nombre: 'Illustrator',
       comision: '02013',
       profesor: 'Emiliano Mora',
@@ -29,6 +31,7 @@ export class CursosCardsComponent implements OnInit {
     },
 
     {
+      id:6,
       nombre: 'Photoshop',
       comision: '34555',
       profesor: 'Sofia Moreno',
@@ -41,6 +44,7 @@ export class CursosCardsComponent implements OnInit {
 
 
     {
+      id:7,
       nombre: 'Dibujo',
       comision: '324122',
       profesor: 'Pablo Suarez',
@@ -52,6 +56,7 @@ export class CursosCardsComponent implements OnInit {
 
 
     {
+      id:8,
       nombre: 'Ilustración digital',
       comision: '223411',
       profesor: 'Paula Sosa',
@@ -62,6 +67,7 @@ export class CursosCardsComponent implements OnInit {
     },
 
     {
+      id:9,
       nombre: 'Premiere Pro',
       comision: '021311',
       profesor: 'Florencia Jara',
@@ -71,8 +77,6 @@ export class CursosCardsComponent implements OnInit {
       imagen: 'https://i.blogs.es/5d0d96/photoshop/450_1000.webp',
     },
   ]
-
-  
 
   constructor() { }
 
