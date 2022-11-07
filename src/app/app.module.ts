@@ -9,10 +9,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { NombreApellidoPipe } from './pipes/nombre-apellido.pipe';
 import { TituloCabeceraDirective } from './directives/titulo-cabecera.directive';
-import { InicioComponent } from './components/inicio/inicio.component';
-import { PaginaNoEncontradaComponent } from './components/pagina-no-encontrada/pagina-no-encontrada.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CursosModule } from './cursos/cursos.module';
+import { AutenticacionModule } from './autenticacion/autenticacion.module';
+import { CoreModule } from './core/core.module';
 import { HeaderComponent } from './components/header/header.component';
 
 
@@ -21,18 +21,17 @@ import { HeaderComponent } from './components/header/header.component';
   declarations: [
     AppComponent,
     FormularioComponent,
-    HeaderComponent,
     NombreApellidoPipe,
     TituloCabeceraDirective,
-    InicioComponent,
     ListasComponent,
-    PaginaNoEncontradaComponent,
-  
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
+    AutenticacionModule,
     CursosModule,
+    CoreModule,
     BrowserAnimationsModule,
     MaterialModule,
     AppRoutingModule

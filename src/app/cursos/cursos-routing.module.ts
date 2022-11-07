@@ -6,11 +6,12 @@ import { CursosVistaComponent } from './components/cursos-vista/cursos-vista.com
 import { ListaCursosComponent } from './components/lista-cursos/lista-cursos.component';
 
 const routes: Routes = [
-  {path: 'cursos', component: CursosVistaComponent, children: [
+  {path: '', component: CursosVistaComponent, children: [
     {path: "cursos-lista", component: ListaCursosComponent},
     {path: 'cursos-editar', component: CursosEditarComponent},
     {path: 'cursos-agregar', component: CursosAgregarComponent}
-  ]}
+  ],
+}
 ];
 
 @NgModule({

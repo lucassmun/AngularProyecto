@@ -10,8 +10,8 @@ import { MaterialModule } from '../material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BooleanATextoPipe } from '../pipes/boolean-a-texto.pipe';
 import { BooleanoEstiloDirective } from '../directives/booleano-estilo.directive';
-import { ListasComponent } from '../components/listas/listas.component';
 import { ListaCursosComponent } from './components/lista-cursos/lista-cursos.component';
+import { CursoService } from './services/curso.service';
 
 
 @NgModule({
@@ -29,6 +29,9 @@ import { ListaCursosComponent } from './components/lista-cursos/lista-cursos.com
     MaterialModule,
     ReactiveFormsModule,
     CursosRoutingModule
+  ],
+  providers: [
+    CursoService
   ]
 })
 export class CursosModule { }
