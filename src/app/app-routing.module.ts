@@ -6,12 +6,16 @@ import { PaginaNoEncontradaComponent } from './core/components/pagina-no-encontr
 
 
 const routes: Routes = [
-  {path: '', redirectTo: 'inicio', pathMatch: 'full'},
   {path: 'inicio', component: InicioComponent},
+  {path: '', redirectTo: 'inicio', pathMatch: 'full'},
   {path: 'alumnos', component: ListasComponent},
   {path: 'cursos', 
   loadChildren:() =>
-  import('./cursos/cursos.module').then((m) => m.CursosModule),},
+  import('./cursos/cursos.module').then((m) => m.CursosModule)},
+  { 
+    path: 'autenticacion',
+    loadChildren: () => import('./autenticacion/autenticacion.module').then((m) => m.AutenticacionModule)
+  },
   {path: '**', component: PaginaNoEncontradaComponent },
 
 ];

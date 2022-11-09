@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { SesionService } from 'src/app/core/services/sesion.service';
+import { Sesion } from 'src/app/models/sesion';
 
 @Component({
   selector: 'app-header',
@@ -6,10 +9,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
-  constructor() { }
+  sesion$!: Observable<Sesion>;
+  constructor(
+    private sesionService: SesionService
+  ) { }
 
   ngOnInit(): void {
+    this.sesion$ = this.sesionService.obtenerSesion();
   }
 
 }

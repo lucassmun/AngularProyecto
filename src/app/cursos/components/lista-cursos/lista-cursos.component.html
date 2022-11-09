@@ -19,9 +19,13 @@
                 <p>Dictado por {{ curso.profesor }}</p>
                 <p>Inicial el {{ curso.fechaInicio | date: 'dd/MM/YYYY' }}</p>
                 <p>Finaliza el {{ curso.fechaFin | date: 'dd/MM/YYYY' }}</p>
+                <p [appBooleanoEstilo]="curso.inscripcionAbierta">{{curso.inscripcionAbierta | booleanATexto: 'Cupos disponibles' : 'Agotado' }}</p>
             </mat-card-content>
         
             <mat-card-actions align="end">
+                <button mat-icon-button [routerLink]="'/cursos/'+curso.id">
+                    <mat-icon>visibility</mat-icon>
+                </button>
                 <button mat-icon-button color="primary" (click)="editarCurso(curso)">
                     <mat-icon>edit</mat-icon>
                 </button>

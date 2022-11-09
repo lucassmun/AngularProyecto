@@ -8,10 +8,12 @@ import { CursosAgregarComponent } from './components/cursos-agregar/cursos-agreg
 import { CursosEditarComponent } from './components/cursos-editar/cursos-editar.component';
 import { MaterialModule } from '../material.module';
 import { ReactiveFormsModule } from '@angular/forms';
-import { BooleanATextoPipe } from '../pipes/boolean-a-texto.pipe';
-import { BooleanoEstiloDirective } from '../directives/booleano-estilo.directive';
+import { BooleanATextoPipe } from '../shared/pipes/boolean-a-texto.pipe';
+import { BooleanoEstiloDirective } from '../shared/directives/booleano-estilo.directive';
 import { ListaCursosComponent } from './components/lista-cursos/lista-cursos.component';
 import { CursoService } from './services/curso.service';
+import { DetallesCursoComponent } from './components/detalles-curso/detalles-curso.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -22,13 +24,15 @@ import { CursoService } from './services/curso.service';
     CursosCardsComponent,
     BooleanATextoPipe,
     BooleanoEstiloDirective,
-    ListaCursosComponent
+    ListaCursosComponent,
+    DetallesCursoComponent,
   ],
   imports: [
     CommonModule,
     MaterialModule,
     ReactiveFormsModule,
-    CursosRoutingModule
+    CursosRoutingModule,
+    SharedModule
   ],
   providers: [
     CursoService
