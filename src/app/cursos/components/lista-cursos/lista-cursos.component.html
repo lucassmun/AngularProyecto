@@ -1,10 +1,31 @@
+
+<div div class="cursos_container">
 <div class="cursos_cabecera">
     <h1 class="cursos_titulos">Lista de cursos</h1>
     <div class="cursos_botones">
-        <button type="button" class="btn btn-success btn-sm" routerLink="cursos-agregar">Agregar un curso</button>
+       
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+   Agregar curso
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-2" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Agregar curso</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <app-cursos-agregar></app-cursos-agregar>
+        </div>
+      </div>
+    </div>
+  </div>
     </div>
 </div>
-<div class="cursos_container">
+<div class="cursos_container2">
     <div class="row">
         <div *ngFor="let curso of cursos$ | async" class="col-md-3">
         <mat-card>
@@ -26,9 +47,24 @@
                 <button mat-icon-button [routerLink]="'/cursos/'+curso.id">
                     <mat-icon>visibility</mat-icon>
                 </button>
-                <button mat-icon-button color="primary" (click)="editarCurso(curso)">
+                <button mat-icon-button color="primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">
                     <mat-icon>edit</mat-icon>
                 </button>
+                <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+         <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="staticBackdropLabel">Título del modal</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+         <app-cursos-editar></app-cursos-editar>
+        </div>
+        
+      </div>
+    </div>
+  </div>
                 <button mat-icon-button color="warn" (click)="eliminarCurso(curso.id)">
                     <mat-icon>delete</mat-icon>
                 </button>
@@ -36,4 +72,5 @@
         </mat-card>
         </div>
         </div>
+    </div>
 </div>

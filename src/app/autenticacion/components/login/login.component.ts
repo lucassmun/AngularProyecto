@@ -9,14 +9,14 @@ import { SesionService } from 'src/app/core/services/sesion.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  formulario: FormGroup;
+  formulario: FormGroup
 
   constructor(
     private sesionService: SesionService,
     private router: Router
   ) {
     this.formulario = new FormGroup({
-      usuario: new FormControl('Abner'),
+      usuario: new FormControl('Lucas'),
       contrasena: new FormControl('asd.123'),
       admin: new FormControl(true)
     })

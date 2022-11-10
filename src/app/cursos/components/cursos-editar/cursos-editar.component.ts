@@ -65,7 +65,7 @@ export class CursosEditarComponent implements OnInit {
     alert(`${c.nombre} editado`);
 
 
-    this.router.navigate(['cursos/cursos-editar'])
+    this.router.navigate(['cursos/cursos-lista'])
   }
 
 }

@@ -12,27 +12,27 @@
               <div class="offcanvas-body">
                     <ul class="navbar-nav">
                         <li><a routerLink="inicio"><span class="item-text">Inicio</span></a></li>
-                        <li><a routerLink="cursos"><span class="item-text">Cursos</span></a></li>
+                        <li><a routerLink="cursos/cursos-lista"><span class="item-text">Cursos</span></a></li>
                         <li><a routerLink="alumnos"><span class="item-text">Alumnos</span></a></li>
                         <li><a href="#"><span class="item-text">Profesores</span></a></li>
                     </ul>
               </div>
             </div>
             <a class="navbar-brand" href="#">
-                <img src="assets/logo.png" alt="Bootstrap" width="126" height="22">
+                <img src="assets/logo.png" alt="ArtHouse logo" width="126" height="22">
               </a>
             <div class="btn-group">
-                <a href="#" class="dropdown-toggle text-white text-decoration-none" data-bs-toggle="dropdown" aria-expanded="false">
-                    <span class="usericon"><i class="bi bi-person-circle"></i></span>
-                    <h3>Demo Router {{ sesion$ | async | json}}</h3>
-                </a>
-                <ul class="dropdown-menu dropdown-menu-end">
+                <a routerLink="login" class="dropdown-toggle text-white text-decoration-none" data-bs-toggle="dropdown" aria-expanded="false">
+                    <span class="usericon">Iniciar Sesión </span>
+<!--                     <h5>Demo Router {{ sesion$ | async | json}}</h5>
+ -->                </a>
+          <!--       <ul class="dropdown-menu dropdown-menu-end">
                     <li><button class="dropdown-item" type="button"><i class="bi bi-lock-fill"></i> Cambiar contraseña</button></li>
                     <li><button class="dropdown-item" type="button"><i class="bi bi-gear-fill"></i> Admin</button></li>
                     <li><button class="dropdown-item" type="button"><i class="bi bi-gear-wide-connected"></i>Configuración</button></li>
                     <li><hr class="dropdown-divider"></li>
                     <li><button class="dropdown-item" type="button"><i class="bi bi-box-arrow-right"></i> Salir</button></li>
-                </ul>
+                </ul> -->
             </div>
         </div>
     </nav>

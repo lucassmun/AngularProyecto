@@ -1,3 +1,8 @@
 .fill{
     width: 100%;
 }
+
+::ng-deep .cdk-overlay-container {
+
+    z-index: 2000 !important;
+  }

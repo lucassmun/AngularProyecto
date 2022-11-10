@@ -1,11 +1,20 @@
-.cursos_container{
+.cursos_container2{
     width: 90%;
     margin-left: 5%;
-    background-color:#6bec8e;
     padding: 10px;
     border-radius: 5px;
     margin-bottom: 50px;
 }
+
+.cursos_container{
+    background-color: #004643;
+    padding-top: 20px;
+}
+
+.cursos_titulos{
+    color: #fffffe;
+}
+
 
 .cursos_cabecera{
     width: 90%;
@@ -21,4 +30,9 @@
 
 .mat-card{
     margin-bottom: 10px;
+    background-color: #e8e4e6;
+}
+
+.modal{
+    width: 80% !important;
 }

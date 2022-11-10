@@ -14,6 +14,7 @@ import { ListaCursosComponent } from './components/lista-cursos/lista-cursos.com
 import { CursoService } from './services/curso.service';
 import { DetallesCursoComponent } from './components/detalles-curso/detalles-curso.component';
 import { SharedModule } from '../shared/shared.module';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { SharedModule } from '../shared/shared.module';
     MaterialModule,
     ReactiveFormsModule,
     CursosRoutingModule,
-    SharedModule
+    SharedModule,
+    MatIconModule
   ],
   providers: [
     CursoService

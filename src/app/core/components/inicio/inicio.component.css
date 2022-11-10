@@ -4,5 +4,19 @@
     bottom: 0;
     top: 0;
     z-index: 0;
-    background-size: cover;
+    object-fit: cover;
+    min-width: 100vh;
+  
 }
+
+.inicio_texto{ 
+    position: absolute;
+    color: #fffffe;
+    font-size: 5rem;
+    font-family: 'Poppins', sans-serif;
+    top: 300px;
+    left: 100px;
+ }
+
+
+
