@@ -6,6 +6,8 @@
             <mat-form-field appearance="fill" class="fill">
                 <mat-label>Usuario</mat-label>
                 <input matInput formControlName="usuario">
+                <p *ngIf="formulario.get('usuario')?.touched && formulario.get('usuario')?.errors?.['required']" class="alert alert-danger">El campo nombre no puede estar vacío.</p>
+
             </mat-form-field>
         </div>
         <div class="col-md-4">

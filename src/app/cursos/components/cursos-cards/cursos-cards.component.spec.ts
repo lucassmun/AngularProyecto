@@ -1,4 +1,7 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { CursosCardsComponent } from './cursos-cards.component';
 
@@ -8,7 +11,16 @@ describe('CursosCardsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CursosCardsComponent ]
+      declarations: [ CursosCardsComponent ],
+      imports: [
+        ReactiveFormsModule,
+        FormsModule,
+        HttpClientTestingModule,
+        RouterTestingModule
+      ],
+      providers:[
+        HttpClientTestingModule
+      ]
     })
     .compileComponents();
 

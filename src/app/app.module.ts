@@ -13,6 +13,12 @@ import { HeaderComponent } from './components/header/header.component';
 import { SharedModule } from './shared/shared.module';
 import { MaterialModule } from './material.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
+
+
+
+
 
 
 
@@ -25,6 +31,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     TituloCabeceraDirective,
     ListasComponent,
     HeaderComponent,
+   
+
   ],
   imports: [
     BrowserModule,
@@ -34,9 +42,12 @@ import { ReactiveFormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    MaterialModule
+    MaterialModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    HttpClientModule, 
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
