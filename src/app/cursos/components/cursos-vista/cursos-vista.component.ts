@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { CursoState } from '../../models/curso.state';
+import { loadCursos } from '../../state/actions/cursos.action';
 
 @Component({
   selector: 'app-cursos-vista',
@@ -7,9 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CursosVistaComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+   
+  ) { }
 
   ngOnInit(): void {
+   
   }
 
 }

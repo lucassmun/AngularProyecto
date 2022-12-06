@@ -1,8 +1,8 @@
 
-
+<body id="formulario">
 <div class="formulario_container">
 
-    <h1>Recibí información de nuestros cursos</h1>
+    <h1 class="titulo_novedades">ENTERATE DE TODAS LAS NOVEDADES DE ARTHOUSE</h1>
 
     <form [formGroup]="formularioUsuario" (ngSubmit)="agregarUsuario()">
         
@@ -40,7 +40,8 @@
         </div>
       
         <!-- OK -->
-        <button type="submit"  [disabled]="formularioUsuario.invalid" class="btn btn-primary btn-block mb-4 ">Recibir información</button>
+        <button type="submit"  [disabled]="formularioUsuario.invalid" class="btn boton_novedades btn-primary btn-block mb-4 ">Recibir información</button>
       
       </form>
 </div>
+</body>

@@ -1,6 +1,6 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, catchError, filter, map, Observable, Subject, throwError } from 'rxjs';
+import { BehaviorSubject, catchError, delay, filter, map, Observable, Subject, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Curso } from '../models/curso';
 
@@ -25,7 +25,7 @@ export class CursoService {
       })
     }).pipe(
       catchError(this.manejarError)
-    )
+    )/* .pipe(delay(2000)) */
   }
  
   obtenerCurso(id: number): Observable<Curso>{

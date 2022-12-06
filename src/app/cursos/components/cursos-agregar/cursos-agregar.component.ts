@@ -38,11 +38,11 @@ export class CursosAgregarComponent implements OnInit {
       fechaFin: this.formulario.value.fin,
       profesor: this.formulario.value.profesor,
       inscripcionAbierta: this.formulario.value.inscripcionAbierta,
-      imagen: 'https://i.blogs.es/5d0d96/photoshop/450_1000.webp'
+      imagen: 'https://escaad.com.ar/wp-content/uploads/2022/07/pintura-digital.jpg'
     };
-    console.log(curso);
+    
     this.cursoService.agregarCurso(curso);
-    this.router.navigate(['cursos/cursos-lista']); // localhost/cursos/listar
+    this.router.navigate(['cursos/cursos-lista']); 
   
   }
 

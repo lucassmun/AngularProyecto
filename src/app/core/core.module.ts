@@ -4,24 +4,29 @@ import { InicioComponent } from './components/inicio/inicio.component';
 import { PaginaNoEncontradaComponent } from './components/pagina-no-encontrada/pagina-no-encontrada.component';
 import { SesionService } from './services/sesion.service';
 import { MaterialModule } from '../material.module';
+import { StoreModule } from '@ngrx/store';
+import { reducer, sesionFeatureKey } from './state/sesion.reducer';
 
 
 
 @NgModule({
   declarations: [
     InicioComponent,
-    PaginaNoEncontradaComponent
+    PaginaNoEncontradaComponent,
+
   ],
   imports: [
     CommonModule,
-    MaterialModule
+    MaterialModule,
+    StoreModule.forFeature(sesionFeatureKey, reducer)
   ],
   providers: [
     SesionService
   ],
   exports: [
     PaginaNoEncontradaComponent,
-    InicioComponent
+    InicioComponent,
+    
   ]
 })
 export class CoreModule { }

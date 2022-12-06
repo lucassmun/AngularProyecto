@@ -1,3 +1,41 @@
 .fill{
     width: 100%;
 }
+
+
+.container_login{
+    background-color: #abd1c6;
+    width: 60%;
+    padding: 20px;
+    margin-top: -20px;
+    border-radius: 10px;
+    display: grid;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%)
+}
+
+body#login{
+  background-color: #004643;
+  position: relative;
+  }
+  
+  :host ::ng-deep .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+    background-color: #f9bc60 ;
+    
+}
+
+:host ::ng-deep  .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
+    background-color: #f9bc60 ;
+}
+
+.boton_login{
+  color: #abd1c6;
+  background-color:  #004643 !important;
+}
+
+h3{
+  font-family: 'Poppins', sans-serif;
+  font-size: 25px;
+}

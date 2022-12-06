@@ -1,5 +1,5 @@
 .sidebar-nav ul li a {
-    font-size: 26px;
+    font-size: 30px;
     text-decoration: none;
     display: block;
     padding: 6px 10px;
@@ -45,6 +45,8 @@
     color: black;
 }
 
-  
+.bi-emoji-sunglasses, .bi-person-circle{
+    color: #fffffe;
+}
 
 

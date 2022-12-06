@@ -1,0 +1,46 @@
+.fill{
+    width: 100%;
+}
+
+body#inscripciones{
+    background-color: #004643;
+}
+
+.titulo_inscripciones{
+    font-family: 'Poppins', sans-serif !important;
+    padding-top: 30px;
+    font-size: 30px;
+    color: #fffffe;
+}
+
+
+.subtitulo_inscripciones{
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 20px;
+    color: #fffffe;
+}
+
+
+.boton_inscripcion{
+    background-color: #f9bc60 !important;
+    width: 100%;
+    color: white;
+}
+
+.miscursos{
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: auto;
+    height: auto;
+}
+
+.miscursos_titulo{
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 20px;
+    color: #004643;
+}
+
+.mat-select-panel {
+    background-color: red;
+}

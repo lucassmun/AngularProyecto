@@ -16,7 +16,11 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule
   ],
   exports: [
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    MaterialModule,
+    FormsModule,
+
   ]
 })
 export class SharedModule { }

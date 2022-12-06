@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { Observable, Subscription } from 'rxjs';
 import { Curso } from 'src/app/cursos/models/curso';
 import { CursoService } from 'src/app/cursos/services/curso.service';
-
-
+import { CursoState } from '../../models/curso.state';
+import { loadCursosFailure, loadCursosSuccess } from '../../state/actions/cursos.action';
+import { selectStateCargando, selectStateCursos } from '../../state/selectors/cursos.selector';
 
 @Component({
   selector: 'app-lista-cursos',
@@ -12,15 +14,33 @@ import { CursoService } from 'src/app/cursos/services/curso.service';
   styleUrls: ['./lista-cursos.component.css']
 })
 export class ListaCursosComponent implements OnInit {
-  cursos$!: Observable<Curso[]>
+  cursos$!: Observable<Curso[]>;
+  cargando$!: Observable<boolean>;
+  suscripcionCursos!: Subscription; 
 
   constructor(
     private cursoService: CursoService,
-    private router: Router
-  ) { }
+    private router: Router,
+    private store: Store<CursoState>
+  ) {
+    this.cursos$ = this.store.select(selectStateCursos);
+    this.cargando$ = this.store.select(selectStateCargando);
+   }
 
-  ngOnInit(): void {
-    this.cursos$ = this.cursoService.obtenerCursos();
+   ngOnInit(): void {
+    this.cursoService.obtenerCursos().subscribe({
+      next: (cursos: Curso[]) => {
+        this.store.dispatch(loadCursosSuccess({cursos}));
+      },
+      error: (error: any) => {
+        alert("Hubo un error")
+        this.store.dispatch(loadCursosFailure(error));
+      }
+    });
+  }
+
+  ngOnDestroy(): void{
+    this.suscripcionCursos.unsubscribe();
   }
 
   eliminarCurso(id: number){
@@ -41,5 +61,9 @@ export class ListaCursosComponent implements OnInit {
     }
   ]);
   }
-
   }
+  
+function cargarCursos(): any {
+  throw new Error('Function not implemented.');
+}
+

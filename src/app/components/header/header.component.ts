@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { SesionService } from 'src/app/core/services/sesion.service';
+import { selectSesionActiva } from 'src/app/core/state/sesion.selectors';
 import { Sesion } from 'src/app/models/sesion';
 
 @Component({
@@ -11,11 +13,11 @@ import { Sesion } from 'src/app/models/sesion';
 export class HeaderComponent implements OnInit {
   sesion$!: Observable<Sesion>;
   constructor(
-    private sesionService: SesionService
+   private store: Store<Sesion>
   ) { }
 
   ngOnInit(): void {
-    this.sesion$ = this.sesionService.obtenerSesion();
+    this.sesion$ = this.store.select(selectSesionActiva);
   }
 
 }

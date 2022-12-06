@@ -22,6 +22,9 @@ import { SharedModule } from '../shared/shared.module';
     MaterialModule,
     SharedModule
     
+  ],
+  exports: [
+    LoginComponent
   ]
 })
 export class AutenticacionModule { }

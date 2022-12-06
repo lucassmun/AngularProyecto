@@ -1,23 +1,36 @@
+
+body#cursos{
+    background-color: #004643;
+    position: relative;
+    }
+
 .cursos_container2{
     width: 90%;
     margin-left: 5%;
-    padding: 10px;
+   
     border-radius: 5px;
     margin-bottom: 50px;
 }
 
 .cursos_container{
-    background-color: #004643;
     padding-top: 20px;
 }
 
 .cursos_titulos{
     color: #fffffe;
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem;
 }
 
+.boton_cursos{
+    background-color: #f9bc60 !important;
+    color:#fffffe;
+    border: none;
+}
 
 .cursos_cabecera{
     width: 90%;
+    margin-top: 20px;
     margin-left: 5%;
     display: flex;
     justify-content: space-between;
@@ -35,4 +48,19 @@
 
 .modal{
     width: 80% !important;
+}
+
+
+.modal-title{
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 20px !important;
+}
+
+.modal-header, .modal-content{
+    background-color: #e8e4e6;
+}
+
+img{
+    
+    height: 180px;
 }

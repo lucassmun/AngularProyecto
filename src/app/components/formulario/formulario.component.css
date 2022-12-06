@@ -1,8 +1,27 @@
 .formulario_container{
     width: 60%;
-    margin-left: 20%;
-    margin-top: 40px;
-    background-color: #50f27b;
+    background-color:#abd1c6;
     padding: 20px;
+    margin-top: -20px;
     border-radius: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%)
+}
+
+body#formulario{
+    background-color: #004643;
+    position:relative ;
+}
+
+.titulo_novedades{
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 20px;
+    color: #004643;
+}
+
+.boton_novedades{
+        background-color: #f9bc60 !important;
+        color: white; 
 }

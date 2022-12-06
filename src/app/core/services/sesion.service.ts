@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Sesion } from 'src/app/models/sesion';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, map, Observable } from 'rxjs';
+import { HttpBackend, HttpClient } from '@angular/common/http';
+import { Usuario } from 'src/app/models/usuario';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -8,25 +11,22 @@ import { BehaviorSubject, Observable } from 'rxjs';
 export class SesionService {
   sesionSubject!: BehaviorSubject<Sesion>;
 
-  constructor() {
+  constructor(
+    private http: HttpClient
+  ) {
     const sesion: Sesion = {
       sesionActiva: false
     };
     this.sesionSubject = new BehaviorSubject(sesion);
   }
 
-  login(usuario: string, contrasena: string, admin: boolean){
-    const sesion: Sesion = {
-      sesionActiva: true,
-      usuarioActivo: {
-        usuario: usuario,
-        contrasena: contrasena,
-        admin: admin
-      }
-    }
-
-    this.sesionSubject.next(sesion);
+  login(usuario: Usuario): Observable<Usuario>{
+    return this.http.get<Usuario[]>(`${environment.api}/usuarios`).pipe(
+      map((usuarios: Usuario[]) => {
+        return usuarios.filter((u: Usuario) => u.usuario === usuario.usuario && u.contrasena===usuario.contrasena)[0]
+      }));
   }
+
 
   obtenerSesion(): Observable<Sesion>{
     return this.sesionSubject.asObservable();

@@ -7,6 +7,11 @@ import { MatIconModule } from "@angular/material/icon";
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { MatNativeDateModule } from "@angular/material/core";
+import { MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import { MatSelectModule} from "@angular/material/select";
+import { MatTableModule} from "@angular/material/table";
+import { MatDialogModule} from "@angular/material/dialog";
+
 
 
 @NgModule({
@@ -19,7 +24,11 @@ import { MatNativeDateModule } from "@angular/material/core";
         MatIconModule,
         MatDatepickerModule,
         MatSlideToggleModule,
-        MatNativeDateModule
+        MatNativeDateModule,
+        MatProgressSpinnerModule,
+        MatSelectModule,
+        MatTableModule,
+        MatDialogModule
     ],
 
     exports: [
@@ -30,7 +39,11 @@ import { MatNativeDateModule } from "@angular/material/core";
         MatIconModule,
         MatDatepickerModule,
         MatSlideToggleModule,
-        MatNativeDateModule
+        MatNativeDateModule,
+        MatProgressSpinnerModule,
+        MatSelectModule,
+        MatTableModule,
+        MatDialogModule
     ]
 
 })

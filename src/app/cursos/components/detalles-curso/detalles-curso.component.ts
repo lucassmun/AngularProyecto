@@ -25,4 +25,6 @@ export class DetallesCursoComponent implements OnInit {
     })
   }
 
+  
+
 }

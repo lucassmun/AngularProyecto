@@ -1,76 +1,91 @@
+<body id="cursos">
+  <div div class="cursos_container">
 
-<div div class="cursos_container">
-<div class="cursos_cabecera">
-    <h1 class="cursos_titulos">Lista de cursos</h1>
-    <div class="cursos_botones">
-       
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-   Agregar curso
-  </button>
-  
-  <!-- Modal -->
-  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-2" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="staticBackdropLabel">Agregar curso</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <app-cursos-agregar></app-cursos-agregar>
-        </div>
-      </div>
+    <div class="row" *ngIf="(cargando$ | async)">
+      <mat-spinner></mat-spinner>
     </div>
-  </div>
-    </div>
-</div>
-<div class="cursos_container2">
-    <div class="row">
-        <div *ngFor="let curso of cursos$ | async" class="col-md-3">
-        <mat-card>
-            <mat-card-header>
-                <mat-card-title>{{ curso.nombre }}</mat-card-title>
-                <mat-card-subtitle>{{ curso.comision }}</mat-card-subtitle>
-            </mat-card-header>
-        
-            <img mat-card-image [src]="curso.imagen" alt="photoshop">
-        
-            <mat-card-content>
-                <p>Dictado por {{ curso.profesor }}</p>
-                <p>Inicial el {{ curso.fechaInicio | date: 'dd/MM/YYYY' }}</p>
-                <p>Finaliza el {{ curso.fechaFin | date: 'dd/MM/YYYY' }}</p>
-                <p [appBooleanoEstilo]="curso.inscripcionAbierta">{{curso.inscripcionAbierta | booleanATexto: 'Cupos disponibles' : 'Agotado' }}</p>
-            </mat-card-content>
-        
-            <mat-card-actions align="end">
-                <button mat-icon-button [routerLink]="'/cursos/'+curso.id">
-                    <mat-icon>visibility</mat-icon>
-                </button>
-                <button mat-icon-button color="primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">
-                    <mat-icon>edit</mat-icon>
-                </button>
-                <!-- Modal -->
-    <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-         <div class="modal-content">
+
+    <div class="row" *ngIf="!(cargando$ | async)"></div>
+
+    <div class="cursos_cabecera">
+      <h1 class="cursos_titulos">NUESTROS CURSOS</h1>
+
+      <div class="cursos_botones">
+
+        <!-- Button trigger modal -->
+        <button type="button" class="btn boton_cursos btn-primary" data-bs-toggle="modal"
+          data-bs-target="#staticBackdrop">
+          Agregar curso
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-2"
+          aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
               <div class="modal-header">
-                  <h5 class="modal-title" id="staticBackdropLabel">Título del modal</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <h5 class="modal-title" id="staticBackdropLabel">AGREGAR CURSO</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <app-cursos-agregar></app-cursos-agregar>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="modal-body">
-         <app-cursos-editar></app-cursos-editar>
+      </div>
+    </div>
+
+
+    <div class="cursos_container2">
+      <div class="row">
+        <div *ngFor="let curso of cursos$ | async" class="col-md-3">
+          <mat-card>
+            <mat-card-header>
+              <mat-card-title>{{ curso.nombre }}</mat-card-title>
+              <mat-card-subtitle>{{ curso.comision }}</mat-card-subtitle>
+            </mat-card-header>
+
+            <img mat-card-image [src]="curso.imagen" alt="photoshop">
+
+            <mat-card-content>
+              <p>Dictado por {{ curso.profesor }}</p>
+              <p>Inicial el {{ curso.fechaInicio | date: 'dd/MM/YYYY' }}</p>
+              <p>Finaliza el {{ curso.fechaFin | date: 'dd/MM/YYYY' }}</p>
+              <p [appBooleanoEstilo]="curso.inscripcionAbierta">
+                {{curso.inscripcionAbierta | booleanATexto: 'Cupos disponibles' : 'Agotado' }}</p>
+            </mat-card-content>
+
+            <mat-card-actions align="end">
+              <button mat-icon-button [routerLink]="'/cursos/'+curso.id">
+                <mat-icon>visibility</mat-icon>
+              </button>
+              <button mat-icon-button color="primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">
+                <mat-icon>edit</mat-icon>
+              </button>
+              <!-- Modal -->
+              <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false"
+                tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="staticBackdropLabel">EDITAR CURSO</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <app-cursos-editar></app-cursos-editar>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+              <button mat-icon-button color="warn" (click)="eliminarCurso(curso.id)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </mat-card-actions>
+          </mat-card>
         </div>
-        
       </div>
     </div>
   </div>
-                <button mat-icon-button color="warn" (click)="eliminarCurso(curso.id)">
-                    <mat-icon>delete</mat-icon>
-                </button>
-            </mat-card-actions>
-        </mat-card>
-        </div>
-        </div>
-    </div>
-</div>
+</body>

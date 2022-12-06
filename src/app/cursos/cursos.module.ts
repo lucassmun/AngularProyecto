@@ -16,6 +16,12 @@ import { DetallesCursoComponent } from './components/detalles-curso/detalles-cur
 import { SharedModule } from '../shared/shared.module';
 import { MatIconModule } from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
+import { CoreModule } from '../core/core.module';
+import { AutenticacionModule } from '../autenticacion/autenticacion.module';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { StoreModule } from '@ngrx/store';
+import { cursosFeatureKey, reducer } from './state/reducers/cursos.reducer';
+
 
 
 @NgModule({
@@ -28,6 +34,10 @@ import { HttpClientModule } from '@angular/common/http';
     BooleanoEstiloDirective,
     ListaCursosComponent,
     DetallesCursoComponent,
+    
+    
+  
+
   ],
   imports: [
     CommonModule,
@@ -36,7 +46,14 @@ import { HttpClientModule } from '@angular/common/http';
     CursosRoutingModule,
     SharedModule,
     MatIconModule,
-    HttpClientModule
+    CoreModule,
+    HttpClientModule,
+    AutenticacionModule,
+    MatProgressSpinnerModule,
+    StoreModule.forFeature(cursosFeatureKey, reducer)
+    
+   
+    
   ],
   providers: [
     CursoService
