@@ -27,7 +27,6 @@ export class FormularioComponent implements OnInit {
   }
 
   agregarUsuario(){
-    console.log(this.formularioUsuario);
     this.formularioUsuario.reset();
   }
 

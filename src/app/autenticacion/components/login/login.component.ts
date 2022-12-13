@@ -24,12 +24,10 @@ export class LoginComponent implements OnInit {
       usuario: new FormControl('Lucas Muñoz'),
       contrasena: new FormControl('WybnmcfRSEQV1iU'),
       admin: new FormControl(true),
-    
     })
   }
 
   ngOnInit(): void {
-    
   }
 
   login(){
@@ -38,7 +36,6 @@ export class LoginComponent implements OnInit {
       usuario: this.formulario.value.usuario,
       contrasena: this.formulario.value.contrasena,
       admin: this.formulario.value.admin,
-     
     }
     this.sesionService.login(u).subscribe((usuario: Usuario) => {
       this.store.dispatch(loadSesionActiva({usuarioActivo: usuario}));

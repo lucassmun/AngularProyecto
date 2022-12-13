@@ -47,7 +47,7 @@ export class CursoService {
       })
     }).pipe(
       catchError(this.manejarError)
-    ).subscribe(console.log);
+    ).subscribe;
   }
 
 

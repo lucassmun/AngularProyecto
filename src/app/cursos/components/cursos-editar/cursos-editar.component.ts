@@ -14,17 +14,16 @@ export class CursosEditarComponent implements OnInit {
   curso!: Curso;
 
   constructor(
-    private  activatedRoute: ActivatedRoute,
+    private activatedRoute: ActivatedRoute,
     private cursoService: CursoService,
     private router: Router
   ) {
-    
-   }
-  
+
+  }
+
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe((parametros) => {
       console.log(parametros)
-
 
       this.curso = {
         id: parseInt(parametros.get('id') || '0'),
@@ -61,9 +60,6 @@ export class CursosEditarComponent implements OnInit {
     }
 
     this.cursoService.editarCurso(c);
-
-    alert(`${c.nombre} editado`);
-
 
     this.router.navigate(['cursos/cursos-lista'])
   }
